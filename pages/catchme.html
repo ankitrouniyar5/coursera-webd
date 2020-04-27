@@ -1,0 +1,88 @@
+<html>
+<head>
+		<title>GAME</title>
+
+<style type="text/css">
+
+	#styleof{
+		background: black;
+		width: 100px;
+		height: 100px;
+		display: none;
+		position: relative;
+		top:30px;
+		bottom: 220px;
+		left:10px;
+		right: 12px;
+		margin-bottom: 98px;
+		}
+	
+
+</style>
+
+</head>
+<body>
+<div> <p  id = "time"> YOUR TIME WAS <span id = "timetaken"></span>:</p></div>
+<div id = "styleof"></div>
+
+
+	
+<script type="text/javascript">
+
+
+	var start = new Date().getTime();
+
+			function get_random_color() 
+			{
+
+    		var letters = '0123456789ABCDEF'.split('');
+    		var color = '#';
+    		for (var i=0; i<6; i++ ) 
+    		{
+        	color += letters[Math.floor(Math.random() * 16)];
+   			 }
+    		return color;
+			}
+function boxer()
+
+	{		
+
+			var top = Math.floor(Math.random()*600);
+			var bottom=Math.floor(Math.random()*600);
+			var width = Math.floor(Math.random()*400);
+			
+			document.getElementById("styleof").style.background= get_random_color();
+			document.getElementById("styleof").style.top = top + "px";
+			document.getElementById("styleof").style.bottom = bottom + "px";
+			document.getElementById("styleof").style.left = bottom + "px";
+			document.getElementById("styleof").style.right = top + "px";
+			document.getElementById("styleof").style.width = width + "px"	
+			document.getElementById("styleof").style.height = width + "px";
+
+			document.getElementById("styleof").style.display = "block";
+			start = new Date().getTime();
+
+	}
+	function delay(){
+	setTimeout(boxer,Math.random()*4000);
+	}
+	delay();
+	document.getElementById("styleof").onclick= function () {
+
+			document.getElementById("styleof").style.display = "none";
+	
+	
+	 var end = new Date().getTime();
+	var time = (end - start)/1000;
+	document.getElementById("timetaken").innerHTML = time + " s";
+	delay();
+
+}
+
+
+
+</script>
+
+
+
+</html>
